@@ -1,0 +1,17 @@
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: #ddddd1;
+    background-color: #121211;
+}
+
+.image-form {
+	margin-top: 10px;
+}
+
+.image-form .errorMessage {
+	font-style: italic;
+	font-weight: bold;
+	margin-top: 10px;
+}

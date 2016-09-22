@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="imgurwork">
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.5/dist/css/bootstrap.min.css">
+	 <link rel="stylesheet" type="text/css" href="assets/css/imgurwork.css" />
+	 
+	<title>I will procrastinate. Tomorrow.</title>
+</head>
+<body>
+	
+	<div class="wrapper">
+		<section class="container">
+			<ui-view></ui-view>
+		</section>
+	</div>
+	
+	<!-- dependencies -->
+	<script src="webjars/angularjs/1.4.8/angular.min.js"></script>
+	<script src="webjars/angular-ui-router/0.2.15/release/angular-ui-router.min.js"></script>
+	<script src="webjars/angular-messages/1.4.7/angular-messages.min.js"></script>
+	
+	<script src="webjars/jquery/2.1.4/dist/jquery.min.js"></script>
+	<script src="webjars/bootstrap/3.3.5/dist/js/bootstrap.min.js"></script>
+	
+	<!-- app -->
+	<script src="app/imgurwork.module.js"></script>
+	<script src="app/imgurwork.routes.js"></script>
+	
+	<!-- home -->
+	<script src="app/components/home/homeController.js"></script>
+	<script src="app/components/home/homeService.js"></script>
+	
+	<!-- home -->
+	<script src="app/components/image/imageController.js"></script>
+	<script src="app/components/image/imageService.js"></script>
+	
+</body>
+</html>
