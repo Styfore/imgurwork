@@ -78,9 +78,4 @@ public class ImgurAlbum {
     public String toString() {
 	return "Image [data=" + data + ", success=" + success + ", status=" + status + "]";
     }
-
-    
-    public static void main(String[] args) {
-	
-    }
 }
