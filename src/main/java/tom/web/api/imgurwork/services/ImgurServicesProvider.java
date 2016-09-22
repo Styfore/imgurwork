@@ -10,6 +10,7 @@ import org.springframework.beans.factory.InitializingBean;
 import retrofit2.GsonConverterFactory;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import tom.web.api.imgurwork.model.ImgurAlbum;
 import tom.web.api.imgurwork.model.ImgurImage;
 
 public class ImgurServicesProvider implements InitializingBean{
@@ -36,6 +37,21 @@ public class ImgurServicesProvider implements InitializingBean{
 	
 	return imgurImage;
     }
+    
+    public ImgurAlbum getAlbum(String id){
+	ImgurAlbum imgurAlbum = null;
+	try {
+	    LOGGER.info("Try to get imgur album with id {}", id);
+	    Response<ImgurAlbum> response = imgurService.createAlbum(header, id).execute();
+	    if (response != null && response.isSuccess() && response.body().isSuccess()){
+		imgurAlbum = response.body();
+	    }
+	} catch (IOException e) {
+	    LOGGER.error(e.getMessage(), e);
+	}
+	
+	return imgurAlbum;
+   }
     
     public void setBaseUrl(String baseUrl) {
 	this.baseUrl = baseUrl;

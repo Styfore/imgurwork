@@ -1,13 +1,8 @@
 package tom.web.api.imgurwork.controllers;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
-import java.nio.file.Paths;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.MediaType;
@@ -18,17 +13,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import tom.web.api.imgurwork.model.ImgurImage;
+import tom.web.api.imgurwork.services.ControllerUtilsService;
 import tom.web.api.imgurwork.services.ImgurServicesProvider;
+import tom.web.api.imgurwork.utils.ContentType;
 
 @RestController
 @RequestMapping("/image")
 public class ImageController {
   
-    private static final Logger LOGGER = LoggerFactory.getLogger(ImageController.class);
-
     @Autowired
     private ImgurServicesProvider imgurServicesProvider;
 
+    @Autowired
+    private ControllerUtilsService controllerUtilsService;
 
     @RequestMapping(path="/{id}")
     @ResponseBody
@@ -38,15 +35,12 @@ public class ImageController {
 	InputStream in;
 	String contentType;
 	if (imgurImage != null && imgurImage.getData() != null && imgurImage.getData().getLink() != null){
-	    URL url = new URL(imgurImage.getData().getLink());
 	    contentType = imgurImage.getData().getType();
-	    in = url.openStream();
-	    LOGGER.info("Success to get imgur image with id {}", id);
+	    in = controllerUtilsService.getInputStreamFromImgurImageData(imgurImage.getData());
 	}
 	else{
-	    contentType = "image/png";
-	    in = new FileInputStream(Paths.get("src/main/resources/public/assets/images/arg.png").toFile());
-	    LOGGER.info("Fail to get imgur image with id {}, arg image is on the way", id);
+	    contentType = ContentType.IMAGE_PNG;
+	    in = controllerUtilsService.getInputStreamArgImage(id);
 	}
 
 	return ResponseEntity
@@ -54,6 +48,5 @@ public class ImageController {
 		.contentType(MediaType.parseMediaTypes(contentType).get(0))
 		.body(new InputStreamResource(in));
     }
-
 
 }

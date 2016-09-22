@@ -1,64 +1,48 @@
 package tom.web.api.imgurwork.model;
 
-public class ImgurImage {
+import java.util.List;
+
+public class ImgurAlbum {
 
     public class Data {
 	private String id;
-	private String link;
 	private String title;
-	private String type;
-	private long size;
-	private String description;
+	private int images_count;
 	
-	public String getType() {
-	    return type;
-	}
-	
-	public void setType(String type) {
-	    this.type = type;
-	}
-	
-	public String getDescription() {
-	    return description;
-	}
-	
-	public void setDescription(String description) {
-	    this.description = description;
-	}
-	
+	private List<ImgurImage.Data> images;
+
 	public String getId() {
 	    return id;
-	}
-	public String getLink() {
-	    return link;
 	}
 
 	public void setId(String id) {
 	    this.id = id;
 	}
 
-	@Override
-	public String toString() {
-	    return "Data [id=" + id + ", link=" + link + ", title=" + title + "]";
-	}
-	public void setLink(String link) {
-	    this.link = link;
-	}
-	
-	public void setTitle(String title) {
-	    this.title = title;
-	}
-	
 	public String getTitle() {
 	    return title;
 	}
+
+	public void setTitle(String title) {
+	    this.title = title;
+	}
+
+	public int getImages_count() {
+	    return images_count;
+	}
+
+	public void setImages_count(int images_count) {
+	    this.images_count = images_count;
+	}
+
+	public List<ImgurImage.Data> getImages() {
+	    return images;
+	}
+
+	public void setImages(List<ImgurImage.Data> images) {
+	    this.images = images;
+	}
 	
-	public long getSize() {
-	    return size;
-	}
-	public void setSize(long size) {
-	    this.size = size;
-	}
     }
 
     private Data data;
@@ -95,4 +79,8 @@ public class ImgurImage {
 	return "Image [data=" + data + ", success=" + success + ", status=" + status + "]";
     }
 
+    
+    public static void main(String[] args) {
+	
+    }
 }

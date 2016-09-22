@@ -16,11 +16,11 @@
                     controller: 'homeController'    
                 })
             .state(
-                'image',
+                'link',
                 {
-                    url: "/image",
-                    templateUrl: 'app/components/image/imageView.html',
-                    controller: 'imageController'    
+                    url: "/link",
+                    templateUrl: 'app/components/link/linkView.html',
+                    controller: 'linkController'    
                 });
         }]);
 
