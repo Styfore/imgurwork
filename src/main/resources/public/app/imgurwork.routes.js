@@ -6,12 +6,12 @@
             
         	$urlMatcherFactoryProvider.strictMode(false)
         	
-            $urlRouterProvider.otherwise('/');
+            $urlRouterProvider.otherwise('/oups');
             $stateProvider
             .state(
                 'home',
                 {
-                    url: "/",
+                    url: "/oups",
                     templateUrl: 'app/components/home/homeView.html',
                     controller: 'homeController'    
                 })

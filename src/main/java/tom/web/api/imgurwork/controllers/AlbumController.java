@@ -22,7 +22,7 @@ import tom.web.api.imgurwork.services.ImgurServicesProvider;
 import tom.web.api.imgurwork.utils.ContentType;
 
 @RestController
-@RequestMapping("/album")
+@RequestMapping({"/album", "a"})
 public class AlbumController {
   
     private static final Logger LOGGER = LoggerFactory.getLogger(AlbumController.class);
