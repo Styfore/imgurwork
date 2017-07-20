@@ -18,7 +18,7 @@ import tom.web.api.imgurwork.services.ImgurServicesProvider;
 import tom.web.api.imgurwork.utils.ContentType;
 
 @RestController
-@RequestMapping({"/image", "/i"})
+@RequestMapping({"/image", "/i", "/gallery"})
 public class ImageController {
   
     @Autowired
