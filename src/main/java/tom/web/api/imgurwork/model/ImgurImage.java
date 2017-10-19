@@ -5,6 +5,8 @@ public class ImgurImage {
     public class Data {
 	private String id;
 	private String link;
+	private String gifv;
+	private String mp4;
 	private String title;
 	private String type;
 	private long size;
@@ -58,6 +60,22 @@ public class ImgurImage {
 	}
 	public void setSize(long size) {
 	    this.size = size;
+	}
+
+	public String getMp4() {
+		return mp4;
+	}
+
+	public void setMp4(String mp4) {
+		this.mp4 = mp4;
+	}
+
+	public String getGifv() {
+		return gifv;
+	}
+
+	public void setGifv(String gifv) {
+		this.gifv = gifv;
 	}
     }
 

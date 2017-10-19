@@ -50,8 +50,9 @@ public class AlbumController {
 	    case 1:
 		LOGGER.info("Only one image in album with id {}, the image will be show", id);
 		ImgurImage.Data imgurImageData = imgurAlbum.getData().getImages().get(0);
-		contentType = imgurImageData.getType();
+		
 		in = controllerUtilsService.getInputStreamFromImgurImageData(imgurImageData);
+		contentType = imgurImageData.getType();
 		break;
 	    default:
 		LOGGER.info("Many many (many ... or {}) images in the album with id {}, links are one the way", imageCount, id);
