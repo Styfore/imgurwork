@@ -7,9 +7,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 
-import retrofit2.GsonConverterFactory;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 import tom.web.api.imgurwork.model.ImgurAlbum;
 import tom.web.api.imgurwork.model.ImgurGallery;
 import tom.web.api.imgurwork.model.ImgurImage;
@@ -29,7 +29,7 @@ public class ImgurServicesProvider implements InitializingBean{
 	try {
 	    LOGGER.info("Try to get imgur image with id {}", id);
 	    Response<ImgurImage> response = imgurService.createImage(header, id).execute();
-	    if (response != null && response.isSuccess() && response.body().isSuccess()){
+	    if (response != null && response.isSuccessful() && response.body().isSuccess()){
 		imgurImage = response.body();
 	    }
 	} catch (IOException e) {
@@ -44,7 +44,7 @@ public class ImgurServicesProvider implements InitializingBean{
 	try {
 	    LOGGER.info("Try to get imgur album with id {}", id);
 	    Response<ImgurAlbum> response = imgurService.createAlbum(header, id).execute();
-	    if (response != null && response.isSuccess() && response.body().isSuccess()){
+	    if (response != null && response.isSuccessful() && response.body().isSuccess()){
 		imgurAlbum = response.body();
 	    }
 	} catch (IOException e) {
@@ -59,7 +59,7 @@ public class ImgurServicesProvider implements InitializingBean{
     	try {
     	    LOGGER.info("Try to get imgur gallery with id {}", id);
     	    Response<ImgurGallery> response = imgurService.createGallery(header, id).execute();
-    	    if (response != null && response.isSuccess() && response.body().isSuccess()){
+    	    if (response != null && response.isSuccessful() && response.body().isSuccess()){
     	    	imgurGallery = response.body();
     	    }
     	} catch (IOException e) {
